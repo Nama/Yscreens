@@ -14,7 +14,7 @@ try: #Check for script-parameters
     m = sys.argv[1]
     screen_count = int(config.get('yscreens', 'count'))
     upload_file = 'y%s.jpg' %screen_count
-    ImageGrab.grab().save(upload_file)
+    ImageGrab.grab().save(upload_file, quality="high")
     screen_count += 1
     config.set('yscreens', 'count', str(screen_count))
     with open('yscreens.ini', 'r+') as configfile:
@@ -27,7 +27,7 @@ except: #If no parameters are set
 t = paramiko.Transport((config.get('yscreens', 'host'), int(config.get('yscreens', 'port'))))
 key_file = config.get('yscreens', 'key', fallback=None)
 if key_file != '':
-    key = paramiko.RSAKey.from_private_key_file(key_file)
+    key = paramiko.RSAKey.from_private_key_file(key_file, config.get('yscreens', 'key_pw', fallback=None))
     t.connect(username=config.get('yscreens', 'username'), pkey=key, hostkey=None)
 else:
     password = config.get('yscreens', 'pw')
