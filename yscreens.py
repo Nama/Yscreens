@@ -12,15 +12,18 @@ config.read('yscreens.ini')
 
 try: #Check for script-parameters
     m = sys.argv[1]
+except: #If no parameters are set
+    m = None
+if m:
     screen_count = int(config.get('yscreens', 'count'))
     upload_file = 'y%s.jpg' %screen_count
     ImageGrab.grab().save(upload_file, quality="high")
     screen_count += 1
     config.set('yscreens', 'count', str(screen_count))
-    with open('yscreens.ini', 'r+') as configfile:
+    with open('yscreens.ini', 'w') as configfile:
         config.write(configfile)
-except: #If no parameters are set
-    upload_file = input('Type in the Filepath: ').replace('"', '')
+else: #If no parameters are set
+    upload_file = input('Type in the Filepath: ').replace('"', '').replace(' ', '%20')
     upload_file_name = str(upload_file.split('\\').pop())
     m = 'file'
 #Connect to the ssh server
