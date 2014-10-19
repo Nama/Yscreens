@@ -30,7 +30,7 @@ If tray pop-up is desired, PyWin32 will be needed as well as *balloons.py*, whic
 *Do whatever you want with this code.*  
 *Just show me what awesome things you did.*
 
-**Requirements for Windows**
+**Requirements for Windows**  
 [PyCrypto](http://www.voidspace.org.uk/python/modules.shtml)  
 [Pillow](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pillow)  
 [PyWin32](http://sourceforge.net/projects/pywin32/)  
