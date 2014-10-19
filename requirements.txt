@@ -1,0 +1,4 @@
+Pillow>=2.5.3
+pycrypto>=2.6
+pyperclip>=1.5.4
+pywin32>=219

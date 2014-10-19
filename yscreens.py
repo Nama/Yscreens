@@ -1,10 +1,11 @@
 import os
 import sys
-import base64
+
 import paramiko
 import pyperclip
-import configparser
 from PIL import ImageGrab
+
+import configparser
 from balloons import WindowsBalloonTip
 
 config = configparser.ConfigParser()
